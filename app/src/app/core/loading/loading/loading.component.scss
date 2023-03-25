@@ -1,0 +1,26 @@
+.loading {
+  padding: 2.5rem;
+  background: white;
+  border-radius: 1rem;
+}
+
+.spinner-border {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.overlay {
+  background-color: rgba(black, 0.6);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spin {
+  color: rgb(143, 140, 140);
+}

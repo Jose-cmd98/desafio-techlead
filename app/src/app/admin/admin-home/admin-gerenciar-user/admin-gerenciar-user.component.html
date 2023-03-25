@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="header">
+    <span class="header-text"> <span class="borda"> Usuários </span></span>
+  </div>
+
+
+  <div class="main">
+    <div class="inputs-div">
+      <input (input)="search($event)" class="form-control" type="text" placeholder="Buscar por...">
+    </div>
+  </div>
+  <div >
+
+    <table class="table w-50">
+      <thead>
+        <tr>
+          <th scope="col">Nome do Usuário</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users$ | async">
+          <td> {{user.name}}</td>
+          <td> {{user.email}} </td>
+          <th>
+            <div ngbDropdown container="body">
+              <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>
+              <div ngbDropdownMenu>
+                <button (click)="excluirUser(user._id)" ngbDropdownItem>Excluir</button>
+              </div>
+            </div>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

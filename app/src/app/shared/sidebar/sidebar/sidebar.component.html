@@ -1,0 +1,64 @@
+<div class="sidebar" [ngClass]="{ 'expanded': isExpanded }">
+  <div class="header">
+    <div class="title">
+      <h1 class="title">
+        My Book
+      </h1>
+      <h6 class="text-light mt-4">{{name}}</h6>
+    </div>
+    <div class="toggle" (click)="handleSidebarToggle()">
+      <span class="chevron"></span>
+    </div>
+  </div>
+  <!-- User navLinks -->
+  <div *ngIf="adminRoute == false" class="menus">
+    <a class="menu" [routerLink]="'pagina-inicial'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path id="Icon_material-dashboard" data-name="Icon material-dashboard" d="M4.5,17.833H15.167V4.5H4.5ZM4.5,28.5H15.167v-8H4.5Zm13.333,0H28.5V15.167H17.833Zm0-24v8H28.5v-8Z" transform="translate(-4.5 -4.5)"/>
+      </svg>
+      Página inicial
+    </a>
+    <a class="menu" [routerLink]="'consultar-livros'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24">
+        <path id="Icon_awesome-file-alt" data-name="Icon awesome-file-alt" d="M10.5,6.375V0H1.125A1.122,1.122,0,0,0,0,1.125v21.75A1.122,1.122,0,0,0,1.125,24h15.75A1.122,1.122,0,0,0,18,22.875V7.5H11.625A1.128,1.128,0,0,1,10.5,6.375Zm3,11.063a.564.564,0,0,1-.562.563H5.063a.564.564,0,0,1-.562-.562v-.375a.564.564,0,0,1,.563-.562h7.875a.564.564,0,0,1,.563.563Zm0-3a.564.564,0,0,1-.562.563H5.063a.564.564,0,0,1-.562-.562v-.375a.564.564,0,0,1,.563-.562h7.875a.564.564,0,0,1,.563.563Zm0-3.375v.375a.564.564,0,0,1-.562.563H5.063a.564.564,0,0,1-.562-.562v-.375a.564.564,0,0,1,.563-.562h7.875A.564.564,0,0,1,13.5,11.063ZM18,5.714V6H12V0h.286a1.124,1.124,0,0,1,.8.328l4.589,4.594A1.121,1.121,0,0,1,18,5.714Z" fill="#b5b5b5"/>
+      </svg>
+      Consultar Livros
+    </a>
+    <a class="menu" [routerLink]="'cadastrar-livros'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path id="Icon_material-chat-bubble" data-name="Icon material-chat-bubble" d="M24.6,3H5.4A2.407,2.407,0,0,0,3,5.4V27l4.8-4.8H24.6A2.407,2.407,0,0,0,27,19.8V5.4A2.407,2.407,0,0,0,24.6,3Z" transform="translate(-3 -3)" />
+      </svg>
+      Cadastrar Livros
+    </a>
+    <a class="menu" (click)="logout()">Sair</a>
+  </div>
+  <!-- Admin navLinks -->
+  <div *ngIf="adminRoute == true" class="menus">
+    <a class="menu" [routerLink]="'inicio'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path id="Icon_material-dashboard" data-name="Icon material-dashboard" d="M4.5,17.833H15.167V4.5H4.5ZM4.5,28.5H15.167v-8H4.5Zm13.333,0H28.5V15.167H17.833Zm0-24v8H28.5v-8Z" transform="translate(-4.5 -4.5)"/>
+      </svg>
+      Página inicial
+    </a>
+    <a class="menu" [routerLink]="'consultar-livros'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24">
+        <path id="Icon_awesome-file-alt" data-name="Icon awesome-file-alt" d="M10.5,6.375V0H1.125A1.122,1.122,0,0,0,0,1.125v21.75A1.122,1.122,0,0,0,1.125,24h15.75A1.122,1.122,0,0,0,18,22.875V7.5H11.625A1.128,1.128,0,0,1,10.5,6.375Zm3,11.063a.564.564,0,0,1-.562.563H5.063a.564.564,0,0,1-.562-.562v-.375a.564.564,0,0,1,.563-.562h7.875a.564.564,0,0,1,.563.563Zm0-3a.564.564,0,0,1-.562.563H5.063a.564.564,0,0,1-.562-.562v-.375a.564.564,0,0,1,.563-.562h7.875a.564.564,0,0,1,.563.563Zm0-3.375v.375a.564.564,0,0,1-.562.563H5.063a.564.564,0,0,1-.562-.562v-.375a.564.564,0,0,1,.563-.562h7.875A.564.564,0,0,1,13.5,11.063ZM18,5.714V6H12V0h.286a1.124,1.124,0,0,1,.8.328l4.589,4.594A1.121,1.121,0,0,1,18,5.714Z" fill="#b5b5b5"/>
+      </svg>
+      Consultar Livros
+    </a>
+    <a class="menu" [routerLink]="'cadastrar-livros'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path id="Icon_material-chat-bubble" data-name="Icon material-chat-bubble" d="M24.6,3H5.4A2.407,2.407,0,0,0,3,5.4V27l4.8-4.8H24.6A2.407,2.407,0,0,0,27,19.8V5.4A2.407,2.407,0,0,0,24.6,3Z" transform="translate(-3 -3)" />
+      </svg>
+      Cadastrar Livros
+    </a>
+    <a class="menu" [routerLink]="'gerenciar-users'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path id="Icon_material-chat-bubble" data-name="Icon material-chat-bubble" d="M24.6,3H5.4A2.407,2.407,0,0,0,3,5.4V27l4.8-4.8H24.6A2.407,2.407,0,0,0,27,19.8V5.4A2.407,2.407,0,0,0,24.6,3Z" transform="translate(-3 -3)" />
+      </svg>
+      Usuários
+    </a>
+    <a class="menu" (click)="logout()">Sair</a>
+  </div>
+  <div class="footer"></div>
+</div>

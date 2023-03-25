@@ -1,0 +1,58 @@
+@import '../../../../scss/index.scss';
+*{
+  font-family: $font-style;
+}
+
+
+h1{
+  color: #1c455d;
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 40px;
+  line-height: 39px;
+  border-bottom: 1px solid #CCCC;
+}
+
+.borda{
+  border-bottom: 5px solid $_logo-text-color;
+}
+.main{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.inputs-div{
+  display: flex;
+  gap: 50px;
+}
+
+.table{
+  margin-top: 30px;
+}
+thead{
+  background-color: #DEDBDB;
+}
+
+th{
+  font-size: 16px;
+  color: #16141C;
+  font-weight: 500;
+}
+td{
+  color: #707070;
+  font-size: 16px;
+}
+
+.button-see{
+  border: none;
+  border-radius: 4px;
+  padding: 4px 20px 4px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #393E42;
+    &.button-see:hover{
+      background-color: #FDB813;
+      transition: .2s;
+    }
+}

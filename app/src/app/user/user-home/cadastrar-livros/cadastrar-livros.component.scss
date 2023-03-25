@@ -1,0 +1,82 @@
+@import '../../../../scss/index.scss';
+*{
+  font-family: $font-style;
+}
+
+.header-text{
+  margin-top: 40px;
+  color: #1c455d;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 40px;
+}
+
+.borda{
+  border-bottom: 5px solid $_logo-text-color;
+}
+
+
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #DEDBDB;
+}
+.novo-button{
+  margin-top: 35px;
+  margin-bottom: 4px;
+  border: none;
+  border-radius: 4px;
+  background-color: #FDB813;
+  padding: 0px 25px 0px 25px;
+  font-weight: 500;
+    &.novo-button:hover{
+      background-color: #1c455d;
+      color: #FFFF;
+      transition: .2s;
+    }
+}
+
+
+.main{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.inputs-div{
+  display: flex;
+  gap: 50px;
+}
+.table{
+  margin-top: 30px;
+}
+thead{
+  background-color: #DEDBDB;
+}
+
+th{
+  font-size: 16px;
+  color: #16141C;
+  font-weight: 500;
+}
+td{
+  color: #707070;
+  font-size: 16px;
+}
+
+.button-see{
+  border: none;
+  border-radius: 4px;
+  padding: 4px 20px 4px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #393E42;
+    &.button-see:hover{
+      background-color: #FDB813;
+      transition: .2s;
+    }
+}
+
+
+// modal

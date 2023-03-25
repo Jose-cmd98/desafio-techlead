@@ -1,0 +1,94 @@
+@import '../../../../scss/index.scss';
+*{
+  font-family: $font-style;
+}
+h1{
+  color: #1c455d;
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 40px;
+  line-height: 39px;
+  border-bottom: 1px solid #CCCC;
+}
+
+.borda{
+  border-bottom: 5px solid $_logo-text-color;
+}
+
+.div-card{
+  margin-top: 40px;
+  width: 80%;
+}
+.body{
+  display: flex;
+  gap: 80px;
+}
+
+.first-column{
+  display: flex;
+  flex-direction: column;
+}
+.second-column{
+  display: flex;
+  flex-direction: column;
+}
+.header-column{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.body-column{
+  display: flex;
+  justify-content: space-between;
+}
+label{
+  font-size: 15px;
+  font-weight: 500;
+  color: #16141C;
+  margin-bottom: 10px;
+}
+p{
+  font-size: 19px;
+  font-weight: 600;
+  color: $_titles-color;
+}
+.nome{
+  border: 1px solid #D9D8D8;
+  border-radius: 4px;
+  padding: 8px;
+}
+.nome:focus{
+  outline: none;
+}
+.rec{
+  font-size: 14px;
+  font-weight: 600;
+  color: #707070;
+  margin-top: 10px;
+}
+.trash{
+  cursor: pointer;
+}
+
+input[type="file"] {
+  margin-right: 18px;
+}
+input[type=file]::file-selector-button {
+  border: none;
+  padding: .4em .6em;
+  border-radius: .2em;
+  background-color: #DEDBDB;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: $_logo-text-color;
+  transition: .2s;
+  cursor: pointer;
+}
+small{
+  font-size: 14px;
+  font-weight: 400;
+  color: #707070;
+}

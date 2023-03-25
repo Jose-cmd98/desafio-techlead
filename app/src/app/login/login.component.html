@@ -1,0 +1,97 @@
+<body>
+  <div class="main">
+    <div class="login-div fadeIn">
+      <div class="login-wrapper">
+        <div class="login-header">
+          <p class="title">Bem-vindo!</p>
+        </div>
+        <div [ngSwitch]="loginFormScreen" class="login-box">
+          <!-- Login Form -->
+          <div *ngSwitchDefault="" >
+            <form class="formulario" [formGroup]="loginForm" (submit)="login()">
+              <p class="text-center">Entrar</p>
+              <label>E-mail</label>
+              <input  formControlName="email" type="email" required>
+              <span *ngIf="loginFormEmailControl.invalid && loginFormEmailControl.touched">
+                <small class="text-danger">
+                  <em>*Campo Obrigatório</em>
+                </small>
+              </span>
+              <label>Senha</label>
+              <input formControlName="password" type="password" required>
+              <button type="submit" class="send-button" [disabled]="loginForm.invalid">
+                Entrar
+              </button>
+            </form>
+            <div class="links">
+              <a (click)="forgotPassword()"> <small> Esqueci minha senha.</small></a>
+              <a (click)="newUser()"> <small>Cadastre-se aqui.</small></a>
+            </div>
+          </div>
+          <!-- Cadastro Form -->
+          <div *ngSwitchCase="'newUserScreen'" >
+              <form class="formulario" [formGroup]="newUserForm" (submit)="createAccount()">
+                <p class="text-center">Cadastrar</p>
+                <label>Usuário</label>
+                <input formControlName="name" type="text" required>
+                <span *ngIf="newNameControl.invalid && newNameControl.touched">
+                  <small class="text-danger">
+                    <em>*Campo Obrigatório</em>
+                  </small>
+                </span>
+                <label>E-mail</label>
+                <input formControlName="email" type="email" requried>
+                <span *ngIf="newEmailControl.invalid && newEmailControl.touched">
+                  <small class="text-danger">
+                    <em>*Campo Obrigatório</em>
+                  </small>
+                </span>
+                <label>Senha</label>
+                <input formControlName="password" type="password" required>
+                <span *ngIf="newPassControl.invalid && newPassControl.touched">
+                  <small class="text-danger">
+                    <em>*Campo Obrigatório</em>
+                  </small>
+                </span>
+                <label>Confirmar Senha</label>
+                <input formControlName="confirmpassword" type="password" required>
+                <span *ngIf="newPassConfirmControl.invalid && newPassConfirmControl.touched">
+                  <small class="text-danger">
+                    <em>*Campo Obrigatório</em>
+                  </small>
+                </span>
+                <button [disabled]="newUserForm.invalid" type="submit" class="send-button">
+                  Cadastrar
+                </button>
+              <div class="links">
+                <a (click)="loginScreen()"> <small> Voltar</small></a>
+              </div>
+          </form>
+          </div>
+          <!-- Esqueci a senha -->
+          <div *ngSwitchCase="'forgotPassword'" class="formulario">
+            <p class="text-center">Recuperar senha</p>
+            <label>E-mail</label>
+            <input type="email">
+            <button class="send-button">
+              Enviar
+            </button>
+            <div class="links">
+              <a (click)="loginScreen()"> <small> Voltar</small></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-div">
+        <div class="container">
+          <ul class="footer-items">
+            <li class="text-item">
+              Design & Develop by Sperandio
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</body>

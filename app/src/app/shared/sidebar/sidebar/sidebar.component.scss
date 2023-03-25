@@ -1,0 +1,122 @@
+.chevron::before {
+  border-style: solid;
+  font-size: 50px;
+  bottom: 7px;
+  border-width: 0.15em 0.15em 0 0;
+  content: "";
+  display: inline-block;
+  height: 0.35em;
+  position: relative;
+  vertical-align: top;
+  width: 0.35em;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  transition: 0.1s;
+  width: 60px;
+  &.expanded {
+    width: 200px;
+
+    .header {
+      h1 {
+        margin-left: 0px;
+      }
+      h6 {
+        margin-left: 0px;
+      }
+      .chevron {
+        margin-left: 0px;
+        &::before {
+          transform: rotate(-135deg);
+        }
+      }
+    }
+    .menus{
+      display: flex;
+      flex-direction: column;
+      // margin-top: 10px;
+      gap: 10px;
+      padding: 0px 0px 0px 5px;
+    }
+  }
+  .menus{
+    display: none;
+  }
+
+  background-color: #f2f2f2;
+  color: #6d6e7e;
+
+  .header {
+    display: flex;
+    align-items: center;
+    background-color: #082f4b;
+    padding: 13px;
+    gap: 20px;
+
+    h1 {
+      font-size: 20px;
+      color: #e9bc2c;
+      margin: 0;
+      flex: 1;
+      // transition: 0.3s;
+      margin-left: -100px;
+    }
+    h6 {
+      font-size: 20px;
+      margin: 0;
+      flex: 1;
+      // transition: 0.3s;
+      margin-left: -110px;
+    }
+
+    .chevron {
+      color: #6d6e7e;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-left: -25px;
+      padding: 10px;
+      min-width: 20px;
+      height: 20px;
+      display: block;
+      text-align: center;
+
+      &::before {
+        transition: 0.3s;
+        transform: rotate(45deg);
+      }
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  svg{
+    width: 20px;
+    fill: #CCCCCC;
+    margin-right: 10px;
+  }
+  .menu {
+    color: #333333;
+    min-width: 150px;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 8px 5px;
+    border-bottom: 1px solid #CCCCCC;
+    opacity: 0.6;
+    text-decoration: none;
+  }
+
+  .menu:hover,
+  .menu:focus {
+    cursor: pointer;
+    background-color: #ffffff;
+    border-right: 5px solid #FDB813;
+  }
+
+  .menu:focus {
+    color: black;
+  }
+}

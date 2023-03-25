@@ -1,0 +1,67 @@
+<div class="container">
+  <h1> <span class="borda"> Consulta </span>Geral</h1>
+
+
+  <div class="main">
+    <div class="inputs-div">
+      <input (input)="search($event)"  type="text" class="form-control" type="text" placeholder="Buscar por...">
+    </div>
+  </div>
+  <div >
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" style="padding-left: 140px;">Titulo</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Data de Cadastro</th>
+          <th scope="col">Ação</th>
+           <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of allBook$ |async">
+          <th>{{item.nome}}</th>
+          <th>{{item.descricao}}</th>
+          <th>{{item.autor}}</th>
+          <th>{{item.data_cadastro}}</th>
+          <th>
+            <div ngbDropdown container="body">
+              <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>
+              <div ngbDropdownMenu>
+                <button (click)="visualizar(content, item)" ngbDropdownItem>Visualizar</button>
+                <button (click)="atualizarLivro(item)" ngbDropdownItem>Editar</button>
+                <button (click)="excluirLivro(item._id)"  ngbDropdownItem>Excluir</button>
+              </div>
+            </div>
+          </th>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Add livro modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Visualizar livro</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <form [formGroup]="showBookForm">
+    <div class="modal-body">
+      <label>Titulo do Livro</label>
+      <input readonly  formControlName="nome" type="text" class="form-control">
+      <label>Descrição</label>
+      <input readonly formControlName="descricao" type="text" class="form-control">
+      <label>Nome do Autor</label>
+      <input readonly formControlName="autor" type="text" class="form-control">
+    </div>
+    <div class="modal-footer">
+    </div>
+  </form>
+</ng-template>
+<!--  -->
+
+
