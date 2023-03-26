@@ -5,22 +5,21 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
 } from '@angular/common/http';
-import { catchError, finalize, Observable, throwError } from 'rxjs';
+import {  finalize, Observable } from 'rxjs';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
+
+
 
   constructor(private _loadingService: LoadingService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     this._loadingService.nextLoading(true);
-    return next.handle(request).pipe(
-      catchError((err: HttpErrorResponse) =>{
-        return throwError(() => new Error(err.message));
-      }),
+    return next.handle(request)
+    .pipe(
      finalize(() => this._loadingService.nextLoading(false))
   )}
 }

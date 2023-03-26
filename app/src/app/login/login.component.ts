@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
     private _fb: FormBuilder,
     private router: Router,
     private toastrService: ToastrCustomService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.loginForm = this._fb.group({
@@ -81,9 +82,9 @@ export class LoginComponent implements OnInit {
     this.authService.newUser(newUserBody).subscribe((res) => {
       this.loginFormScreen = "loginScreen";
       this.toastrService.success('Usuário cadastrado.', 'Sucesso')
-    },  (error) => {
-      this.toastrService.error('Verifique os campos e tente novamente.', 'Erro')
-      console.log(error)
+    }, err => {
+      this.toastrService.error(err.error.msg, 'Erro')
+      console.log(err.error.msg)
     })
   }
 

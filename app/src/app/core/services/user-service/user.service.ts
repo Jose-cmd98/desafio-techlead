@@ -20,6 +20,7 @@ export class UserService {
     private tokenService: TokenService
   ) { }
 
+
   // users token services
   public saveToken(accessToken: string, isAdmin: any, user: string) {
     this.tokenService.setToken(accessToken);
@@ -47,12 +48,12 @@ export class UserService {
       ...loginForm
     }).pipe(
       tap((res: IauthUser) => {
-        // const isAdmin = res ['isAdmin'] = res.user == 'Jose teste' || res.user == 'Administrador';
         const isAdmin = res.isAdmin;
         const authToken = res.token;
         const user = res.user;
         this.saveToken(authToken,isAdmin , user)
-      })
+      },
+      )
     )
   }
 
