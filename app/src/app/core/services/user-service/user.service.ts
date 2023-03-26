@@ -46,8 +46,9 @@ export class UserService {
     return this._http.post<IauthUser>(`${API}/auth/login`, {
       ...loginForm
     }).pipe(
-      tap((res: any) => {
-        const isAdmin = res ['isAdmin'] = res.user == 'Jose teste' || res.user == 'Administrador';
+      tap((res: IauthUser) => {
+        // const isAdmin = res ['isAdmin'] = res.user == 'Jose teste' || res.user == 'Administrador';
+        const isAdmin = res.isAdmin;
         const authToken = res.token;
         const user = res.user;
         this.saveToken(authToken,isAdmin , user)

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from './../core/services/user-service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
+
 
 
 @Component({
@@ -68,7 +68,6 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(loginValue).subscribe((res) => {
       this.router.navigate(['admin'])
       this.toastrService.success('Seja bem-vindo!', 'Sucesso')
-      // console.log(res)
     }, err => {
       console.log(err)
         this.toastrService.error('Usuário ou senha inválido', 'Erro');
@@ -77,8 +76,9 @@ export class LoginComponent implements OnInit {
 
   public createAccount() {
     const userForm: InewUser = this.newUserForm.value;
-    console.log(userForm);
-    this.authService.newUser(userForm).subscribe((res) => {
+    const isAdmin: boolean = false;
+    const newUserBody = {...userForm, isAdmin}
+    this.authService.newUser(newUserBody).subscribe((res) => {
       this.loginFormScreen = "loginScreen";
       this.toastrService.success('Usuário cadastrado.', 'Sucesso')
     },  (error) => {
