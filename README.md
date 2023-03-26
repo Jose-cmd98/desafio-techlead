@@ -43,7 +43,7 @@ Para executar o projeto localmente, siga estas instruções:
 2. Execute o comando npm install para instalar as dependências do projeto.
 3. Em seguida, execute o comando ng serve --open para iniciar o servidor local e abrir a aplicação no navegador.
 
-#Backend
+# Backend
 1. Abra um terminal na pasta api do projeto.
 2. Execute o comando npm install para instalar as dependências do projeto.
 3. Em seguida, execute o comando npm run start para iniciar o servidor do backend.
