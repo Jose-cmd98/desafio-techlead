@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
         }, 
             secret
         )
-        res.status(200).json({msg: 'User autenticado', token: token, user: user.name})
+        res.status(200).json({msg: 'User autenticado', token: token, user: user.name, isAdmin: user.isAdmin})
     } catch (error) {
         console.log(error);
         res.status(500).json({msg: 'Erro no servidor'});

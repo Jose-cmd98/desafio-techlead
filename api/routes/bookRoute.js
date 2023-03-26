@@ -48,7 +48,7 @@ router.post('/', checkToken, (req, res) => {
       });
   });
 
-// Rota para listar os produtos do usuário atual
+// Rota para listar os livros do usuário atual
 router.get('/myBooks', checkToken, async (req, res) => {
   try {
     const book = await Book.find({ usuarioId: req.user_id });
