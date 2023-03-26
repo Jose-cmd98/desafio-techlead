@@ -16,6 +16,7 @@
         <tr>
           <th scope="col">Nome do Usuário</th>
           <th scope="col">E-mail</th>
+          <th scope="col">Administrador</th>
           <th scope="col">Ação</th>
         </tr>
       </thead>
@@ -23,6 +24,7 @@
         <tr *ngFor="let user of users$ | async">
           <td> {{user.name}}</td>
           <td> {{user.email}} </td>
+          <td> {{sourceTreat[user.isAdmin]}}</td>
           <th>
             <div ngbDropdown container="body">
               <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>

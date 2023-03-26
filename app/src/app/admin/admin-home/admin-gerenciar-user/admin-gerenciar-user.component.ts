@@ -13,6 +13,8 @@ export class AdminGerenciarUserComponent implements OnInit {
 
   public users$!: Observable<IgetUser[]>;
 
+  sourceTreat: any = { 'true': "Sim", 'false': "Não"};
+
   constructor(
     private userService: UserService,
     private toastrService: ToastrCustomService

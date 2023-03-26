@@ -16,5 +16,6 @@ export interface InewUser {
 export interface IgetUser{
   _id: string,
   name: string,
-  email: string
+  email: string,
+  isAdmin: any
 }
